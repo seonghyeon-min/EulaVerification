@@ -1,13 +1,15 @@
 import os
 import json
 import time
-import pandas as pd
-import numpy as np
+import subprocess
 
+def runSystem(cmd) :
+    out = subprocess.check_output(cmd, shell=True)
+    return out
 
 def lunaCommand(api, payload) :
     cmd = "luna-send -n 1 -f {} \'{}\'".format(api, payload)
-    return os.system(cmd)
+    return runSystem(cmd)
 
 def jsonGetKeyValue(obj, key) :
     try :
@@ -19,7 +21,6 @@ def jsonGetKeyValue(obj, key) :
     except Exception as ex :
         print('Exception : ', ex)
         return False, None       
-
 
 # 1. 서버 변경
 '''
@@ -61,11 +62,11 @@ var/palm/license/eulaInfoNetwork.json
 "eulaGroupName":"all", "mandatory":[~] 참조
 '''
 def GetEulaSettingsinDevice() :
-    cmd = 'cat var/palm/license/eulaInfoNetwork.json'
-    eulaData = json.loads(os.system(cmd))
+    cmd = 'cat ../../../../../var/palm/license/eulaInfoNetwork.json'
+    eulaData = json.loads(runSystem(cmd))
     for data in eulaData['eulaMappingList']['eulaInfo'] :
         if data['eulaGroupName'] == 'all':
-            eulalist = data['mandotory'] # 스마트모니터 약관 구조
+            eulalist = data['mandatory'] # 스마트모니터 약관 구조
     return list(eulalist)
 
 def GetCountryInfo() :
@@ -83,32 +84,52 @@ def MakeDataFrame() :
     Country_code = GetCountryInfo()
     terms_code = GetEulaSettingsinDevice()
     
-    test_df = pd.DataFrame({'country_code' : [Country_code], 'terms_code' : terms_code})
-    print(test_df)
+    object_db = {
+        'country_code' : Country_code,
+        'terms_code' : terms_code,
+    }
+
+    print(object_db)
     
-    return test_df
+    return object_db
 
 # 2.2 DB 내 약관 tree
 def GetEulaSettingsinDB() :
-    df = pd.DataFrame({'country_code' : ['KR'], 'terms_code' : [['S_SVC', 'S_PRV', 'S_PRM', 'S_PRC', 'S_PRD', 'S_VDC', 'S_VDD']]})
-    print(df)
+    with open('eula.json', 'r') as file :
+        eula_db = json.loads(file.read())
+        
+    # eula_db = {
+    #     'country_code' : 'KR',
+    #     'terms_code' : ['S_SVC', 'S_PRV', 'S_PRM', 'S_PRC', 'S_PRD', 'S_VDC', 'S_VDD'],
+    # }
     
-    return df
+    print(eula_db)
+
+    return eula_db
 
 # 3. test
 def EulaTest() :
     # 1) checking the server
     
     if SetServerParam() :
-        device_df = MakeDataFrame()
-        database_df = GetEulaSettingsinDB()
+        device_db = MakeDataFrame()
+        database_db = GetEulaSettingsinDB()
 
-        print('> -- start Eula Test -- ')
-        if device_df['terms_code'] == database_df['terms_code'] :
-            print('Success')
+        print('> -- start Eula Test -- <')
+        
+        if device_db['country_code'] in database_db.keys() :
+            code = device_db['country_code']
+            if device_db['terms_code'] == database_db[code]['terms_code'] :
+                print('> -- Please refer to below result -- <')
+                print(f'country_code : {code}')
+                print(f'terms_code : {device_db["terms_code"]}')
+                print('> -- Reulst : Success -- < ')              
+            else :
+                print('> -- Warning : Please check the server Eula settings -- <')
+                
         else :
-            print('Please check the server Eula settings')
-
+            print('> -- Warning : Please check the country code -- <')
+            
     else :
         print('> Please Check the serverIndex (QA2/Production) ')
         

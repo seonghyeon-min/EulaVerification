@@ -1,0 +1,27 @@
+{
+    "KR":{
+        "country_three_code":"KOR",
+        "country_info":"Korea",
+        "terms_code":[
+            "S_SVC",
+            "S_PRV",
+            "S_PRM",
+            "S_PRC",
+            "S_PRD",
+            "S_VDC",
+            "S_VDD"
+        ]
+    },
+    "US":{
+        "country_three_code":"USA",
+        "country_info":"USA",
+        "terms_code":[
+            "S_SVC",
+            "S_PRG",
+            "S_ADG",
+            "S_VNG",
+            "S_TAG",
+            "S_VRC"
+        ]
+    }
+}
