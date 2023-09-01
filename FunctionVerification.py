@@ -20,7 +20,40 @@ def jsonGetKeyValue(obj, key) :
     
     except Exception as ex :
         print('Exception : ', ex)
-        return False, None       
+        return False, None
+    
+def jsonCheckKeyValue(obj, key, value) :
+    try : 
+        if (key in obj) and (obj[key] == value) :
+            return True
+        return False
+    
+    except Exception as ex :
+        print('Exception : ', ex)
+        return False
+    
+def OpenJsonFile(file) :
+    with open(file, 'r') as file :
+        data = json.loads(file.read())
+        
+    return data
+    
+def MergeData() :
+    JsonList = ['eula.json', 'qcard.json']
+    basedata = {}
+    
+    for json in JsonList :
+        data = OpenJsonFile(json)
+        for cntrycode, value in data.items() :
+            if cntrycode in basedata.keys() :
+                for key in data[cntrycode].keys() :
+                    if key.lower() not in basedata[cntrycode].keys() :
+                        basedata[cntrycode][key] = data[cntrycode][key]
+            else:
+                basedata[cntrycode] = value
+    
+    return basedata                
+    
 
 def GetServerParam() :
     '''
@@ -61,10 +94,25 @@ def SetServerParam(serverIndex) :
 
 def GetEulaSettingsinDevice() :
     '''
-    var/palm/license/eulaInfoNetwork.json, 전체동의 약관구조를 참조, "eulaGroupName":"all", "mandatory":[~] 참조
+    var/palm/license/eulaInfoNetwork.json, 전체동의 약관구조를 참조, 
+    {"eulaGroupName":"all", "mandatory":[..]}
     '''
     cmd = 'cat ../../../../../var/palm/license/eulaInfoNetwork.json'
-    eulaData = json.loads(runSystem(cmd))
+    try :
+        eulaData = json.loads(runSystem(cmd))    
+    except :
+        # load Eula
+        print('[WARN] EUlA needs to be loaded ')
+        api = 'palm://com.webos.applicationManager/launch'
+        payload = {"id":"com.webos.app.firstuse-overlay", 
+                   "params":{"target":"eula", "context":"eulaUpdate"}}
+        ret = lunaCommand(api, payload)
+        time.sleep(5)
+        retObj = json.loads(ret)
+        bRet = jsonCheckKeyValue(retObj, 'returnValue', True)
+        if bRet == False : return False, None
+        eulaData = json.loads(runSystem(cmd))        
+    
     for data in eulaData['eulaMappingList']['eulaInfo'] :
         if data['eulaGroupName'] == 'all':
             eulalist = data['mandatory'] # 스마트모니터 약관 구조
@@ -107,7 +155,7 @@ def MakeData() :
     
     print()
     print('> ------------------ Device Data ------------------ <')
-    print(json.dumps(object_db, indent=2))
+    print(json.dumps(object_db, indent=4))
     print('> ------------------------------------------------- <')
     return object_db
 
@@ -138,7 +186,7 @@ def SetCountry(objCountry) :
     time.sleep(10)
     
     return True
-    
+
 def EulaTest(DeviceData, CntryCode) :
     ServerData = GetEulaSettingsinDB()
     code = CntryCode
@@ -153,12 +201,15 @@ def EulaTest(DeviceData, CntryCode) :
 
         else :
             print('> ------------------------------------------------- <')
-            print('> -- Warning : Please check the Server Eula Data -- <')
-            
+            result = {'returnValue' : {'Result' : False, 
+                                       'CountryCode' : code, 
+                                       'messages' : '[WARN] : Check EulaData/Loading Status.'}}
+            print(json.dumps(result, indent=4))
+        
     else :
         print('> -- Warning : Please check the country code -- <')           
              
-    return
+    return result
         
 def QcardTest(DeviceData, CntryCode) :
     ServerData = GetQcardSettingsinDB()
@@ -169,16 +220,75 @@ def QcardTest(DeviceData, CntryCode) :
         print('> -- start Q-card Test -- <')
         if sorted(ServerData[code]['Q-Card Title']) == sorted(DeviceData['Q-Card Title']) :
             print('> ------------------------------------------------- <')
-            result = {'returnValue' : {'Result' : True, 'CountryCode' : code, 'termsCode' : DeviceData['Q-Card Title']}}
+            result = {'returnValue' : {'Result' : True, 'CountryCode' : code, 'qCardList' : DeviceData['Q-Card Title']}}
             print(json.dumps(result, indent=4))
             
         else :
             print('> ------------------------------------------------- <')
-            print('> -- Warning : Please check the Server Q-card Data -- <')
+            result = {'returnValue' : {'Result' : False, 
+                                       'CountryCode' : code, 
+                                       'messages' : '[WARN] : Check Q-Card Server Data.'}}
+            print(json.dumps(result, indent=4))
     else :
         print('> -- Please Check the country/Server Data')
         
-    return
+    return result
+
+def TestConfing() :
+    TestFunc = {}
+    Database = MergeData()                # type : dict
+    CntryCode = GetCountryInfo()          # CountryCode : two_code
+    Keylist = list(Database[CntryCode].keys())  # ['country_three_code', 'country_info', 'terms_code', 'Q-card Title'...]
+    StdIdx = Keylist.index('terms_code')
+    Funclst= ['Eula', 'qCard']
+    
+    for func in Funclst :
+        TestFunc[func] = Keylist[StdIdx]
+        StdIdx += 1
+    
+    return TestFunc
+    
+def AutoMode(DeviceData, CntryCode) :
+    DatabaseDB = MergeData()             # DB
+    DeviceDB = DeviceData                # Device
+    code = CntryCode                     # Setting Device Country code
+    TConfig = TestConfing()
+    TestFunc = ['Eula', 'qCard']
+    Testconfig = {}
+    '''
+    DeviceDB = {
+        'country_code' : Country_code,
+        'terms_code' : terms_code,
+        'Q-Card Title' : qCardTitle,
+    }
+    '''   
+    for idx, func in enumerate(TestFunc) : 
+        if (code in DatabaseDB.keys()) :
+            if sorted(DeviceDB[TConfig[func]]) == sorted(DatabaseDB[code][TConfig[func]]) :
+                Testconfig[idx+1] = {
+                                'ConfigId' : 'AutoTest',
+                                'PreConditionsSettings' : [DatabaseDB[code]['country_info'], DatabaseDB[code][TConfig[func]]],
+                                'UnitTest' : [
+                                    {
+                                        'id' : func,
+                                        'TestResult' : True,
+                                    }
+                                ]    
+                            }
+            else :
+                Testconfig[idx+1] = {
+                                'ConfigId' : 'AutoTest',
+                                'PreConditionsSettings' : [DatabaseDB[code]['country_info'], DatabaseDB[code][TConfig[func]]],
+                                'UnitTest' : [
+                                    {
+                                        'id' : func,
+                                        'TestResult' : False,
+                                    }
+                                ]    
+                            }    
+
+    print(json.dumps(Testconfig, indent=4))
+    return Testconfig   
 
 # <-- disp Test Menu --> #
             
@@ -190,6 +300,9 @@ TestCondition :
     01. Server Change
     02. Country condition
     03. DB condition
+
+Mode :
+    aa. Auto 
 
 FunctionTest :
     10. Eula
@@ -213,6 +326,8 @@ if __name__ == '__main__' :
         elif cmd == '01' :  SetServerParam(ServerIndex)
         elif cmd == '02' :  CntryCode = GetCountryInfo()
         elif cmd == '03' :  DeviceData = MakeData()
+        
+        elif cmd == 'aa' :  AutoMode(DeviceData, CntryCode)
                 
         elif cmd == '10' :  EulaTest(DeviceData, CntryCode)
         elif cmd == '11' :  QcardTest(DeviceData, CntryCode)
