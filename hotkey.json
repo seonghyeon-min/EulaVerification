@@ -1,0 +1,1832 @@
+{
+    "AE":{
+        "Country":"United Arab Emirates",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "webos.tod.tv : On",
+            "com.webos.app.livetv : Off",
+            "net.mbc.shahid-lgapp : On",
+            "netflix : On",
+            "amazon.alexa : On",
+            "disneyplus : On"
+        ]
+    },
+    "AF":{
+        "Country":"Afghanistan",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.webos.app.browser : On",
+            "com.webos.app.livetv : Off",
+            "net.mbc.shahid-lgapp : On",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "AG":{
+        "Country":"Antigua and Barbuda",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "amazon : On",
+            "com.disney.disneyplus-prod : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "AJ7":{
+        "Country":"AJ_Others",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "amazon : On",
+            "com.webos.app.browser : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "AL":{
+        "Country":"Albania",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.disney.disneyplus-prod : On",
+            "ui30 : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "AM":{
+        "Country":"Armenia",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "com.webos.app.browser : On",
+            "com.webos.app.livetv : Off",
+            "ivi : On",
+            "netflix : On",
+            "com.685631.3411 : On",
+            "yota.play : On"
+        ]
+    },
+    "AO":{
+        "Country":"Angola",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.webos.app.browser : On",
+            "com.webos.app.livetv : Off",
+            "net.mbc.shahid-lgapp : On",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "AR":{
+        "Country":"Argentina",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "amazon : On",
+            "com.disney.disneyplus-prod : On",
+            "com.webos.app.lgchannels : Off",
+            "netflix : On",
+            "amazon.alexa : On"
+        ]
+    },
+    "AT":{
+        "Country":"Austria",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.disney.disneyplus-prod : On",
+            "ui30 : On",
+            "com.webos.app.lgchannels : Off",
+            "netflix : On",
+            "amazon.alexa : On"
+        ]
+    },
+    "AU":{
+        "Country":"Australia",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.disney.disneyplus-prod : On",
+            "com.webos.app.lgchannels : Off",
+            "netflix : On",
+            "amazon.alexa : On",
+            "stan.webos2 : On"
+        ]
+    },
+    "AW":{
+        "Country":"Aruba",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "amazon : On",
+            "com.disney.disneyplus-prod : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "AZ":{
+        "Country":"Azerbaijan",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "com.webos.app.browser : On",
+            "com.webos.app.livetv : Off",
+            "ivi : On",
+            "netflix : On",
+            "com.685631.3411 : On",
+            "yota.play : On"
+        ]
+    },
+    "BA":{
+        "Country":"Bosnia and Herzegovina",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.disney.disneyplus-prod : On",
+            "ui30 : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "BB":{
+        "Country":"Barbados",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "amazon : On",
+            "com.disney.disneyplus-prod : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "BE":{
+        "Country":"Belgium",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.disney.disneyplus-prod : On",
+            "ui30 : On",
+            "com.webos.app.lgchannels : Off",
+            "netflix : On",
+            "amazon.alexa : On"
+        ]
+    },
+    "BF":{
+        "Country":"Burkina Faso",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.webos.app.browser : On",
+            "com.webos.app.livetv : Off",
+            "net.mbc.shahid-lgapp : On",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "BG":{
+        "Country":"Bulgaria",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.disney.disneyplus-prod : On",
+            "ui30 : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "BH":{
+        "Country":"Bahrain",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "webos.tod.tv : On",
+            "com.webos.app.livetv : Off",
+            "net.mbc.shahid-lgapp : On",
+            "amazon.alexa : Off",
+            "netflix : On",
+            "disneyplus : On"
+        ]
+    },
+    "BJ":{
+        "Country":"Benin",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.webos.app.browser : On",
+            "com.webos.app.livetv : Off",
+            "net.mbc.shahid-lgapp : On",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "BO":{
+        "Country":"Bolivia",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "amazon : On",
+            "com.disney.disneyplus-prod : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "BR":{
+        "Country":"Brazil",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.disney.disneyplus-prod : On",
+            "com.webos.app.lgchannels : Off",
+            "netflix : On",
+            "globoplaywebos : On",
+            "amazon.alexa : On"
+        ]
+    },
+    "BR7":{
+        "Country":"BR_Others",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "amazon : On",
+            "com.webos.app.browser : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "BY":{
+        "Country":"Belarus",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "com.webos.app.browser : On",
+            "com.webos.app.livetv : Off",
+            "ivi : On",
+            "netflix : On",
+            "com.685631.3411 : On",
+            "yota.play : On"
+        ]
+    },
+    "BZ":{
+        "Country":"Belize",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "amazon : On",
+            "com.disney.disneyplus-prod : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "C01":{
+        "Country":"China(WASU)",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "com.webos.app.livetv : Off"
+        ]
+    },
+    "CA":{
+        "Country":"Canada",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.disney.disneyplus-prod : On",
+            "com.webos.app.livetv : Off",
+            "com.movenetworks.app.sling-tv-sling-production : On",
+            "com.webos.app.lgchannels : On",
+            "netflix : On",
+            "amazon.alexa : On"
+        ]
+    },
+    "CD":{
+        "Country":"Democratic Republic of the Congo",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.webos.app.browser : On",
+            "com.webos.app.livetv : Off",
+            "net.mbc.shahid-lgapp : On",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "CF":{
+        "Country":"Central African Republic",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.webos.app.browser : On",
+            "com.webos.app.livetv : Off",
+            "net.mbc.shahid-lgapp : On",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "CG":{
+        "Country":"Republic of the Congo",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.webos.app.browser : On",
+            "com.webos.app.livetv : Off",
+            "net.mbc.shahid-lgapp : On",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "CH":{
+        "Country":"Switzerland",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.disney.disneyplus-prod : On",
+            "ui30 : On",
+            "com.webos.app.lgchannels : Off",
+            "netflix : On",
+            "amazon.alexa : On"
+        ]
+    },
+    "CI":{
+        "Country":"Cote dKIvoire(Republic of Ivory Coast)",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.webos.app.browser : On",
+            "com.webos.app.livetv : Off",
+            "net.mbc.shahid-lgapp : On",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "CL":{
+        "Country":"Chile",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "amazon : On",
+            "com.disney.disneyplus-prod : On",
+            "com.webos.app.lgchannels : Off",
+            "netflix : On",
+            "amazon.alexa : On"
+        ]
+    },
+    "CM":{
+        "Country":"Cameroon",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.webos.app.browser : On",
+            "com.webos.app.livetv : Off",
+            "net.mbc.shahid-lgapp : On",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "CO":{
+        "Country":"Colombia",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "amazon : On",
+            "com.disney.disneyplus-prod : On",
+            "com.webos.app.lgchannels : Off",
+            "netflix : On",
+            "amazon.alexa : On"
+        ]
+    },
+    "CR":{
+        "Country":"Costa Rica",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "amazon : On",
+            "com.disney.disneyplus-prod : On",
+            "com.webos.app.livetv : Off",
+            "netflix : On",
+            "amazon.alexa : On"
+        ]
+    },
+    "CV":{
+        "Country":"Cape Verde",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.webos.app.browser : On",
+            "com.webos.app.livetv : Off",
+            "net.mbc.shahid-lgapp : On",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "CY":{
+        "Country":"Cyprus",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.webos.app.browser : On",
+            "ui30 : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "CZ":{
+        "Country":"Czech Republic",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "amazon : On",
+            "ui30 : On",
+            "com.disney.disneyplus-prod : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "DE":{
+        "Country":"Germany",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "ui30 : On",
+            "com.webos.app.lgchannels : Off",
+            "com.disney.disneyplus-prod : On",
+            "netflix : On",
+            "amazon.alexa : On"
+        ]
+    },
+    "DJ":{
+        "Country":"Djibouti",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.webos.app.browser : On",
+            "com.webos.app.livetv : Off",
+            "net.mbc.shahid-lgapp : On",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "DK":{
+        "Country":"Denmark",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "ui30 : On",
+            "com.webos.app.lgchannels : Off",
+            "com.disney.disneyplus-prod : On",
+            "netflix : On",
+            "amazon.alexa : On"
+        ]
+    },
+    "DM":{
+        "Country":"Dominica",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "amazon : On",
+            "com.disney.disneyplus-prod : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "DO":{
+        "Country":"Dominican Republic",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "amazon : On",
+            "com.disney.disneyplus-prod : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "DZ":{
+        "Country":"Algeria",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "webos.tod.tv : On",
+            "com.webos.app.livetv : Off",
+            "net.mbc.shahid-lgapp : On",
+            "amazon.alexa : Off",
+            "netflix : On",
+            "disneyplus : On"
+        ]
+    },
+    "EC":{
+        "Country":"Ecuador",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "amazon : On",
+            "com.disney.disneyplus-prod : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "EE":{
+        "Country":"Estonia",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.disney.disneyplus-prod : On",
+            "ui30 : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "EG":{
+        "Country":"Egypt",
+        "App:Status":[
+            "amazon : On",
+            "webos.tod.tv : On",
+            "com.webos.app.voice : On",
+            "com.webos.app.livetv : Off",
+            "net.mbc.shahid-lgapp : On",
+            "amazon.alexa : Off",
+            "netflix : On",
+            "disneyplus : On"
+        ]
+    },
+    "ES":{
+        "Country":"Spain",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.disney.disneyplus-prod : On",
+            "ui30 : On",
+            "com.webos.app.lgchannels : Off",
+            "netflix : On",
+            "amazon.alexa : On"
+        ]
+    },
+    "ET":{
+        "Country":"Ethiopia",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.webos.app.browser : On",
+            "com.webos.app.livetv : Off",
+            "net.mbc.shahid-lgapp : On",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "EU7":{
+        "Country":"EU_Others",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.webos.app.browser : On",
+            "ui30 : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "FI":{
+        "Country":"Finland",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.disney.disneyplus-prod : On",
+            "ui30 : On",
+            "com.webos.app.lgchannels : Off",
+            "netflix : On",
+            "amazon.alexa : On"
+        ]
+    },
+    "FR":{
+        "Country":"France",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.disney.disneyplus-prod : On",
+            "ui30 : On",
+            "com.webos.app.lgchannels : Off",
+            "netflix : On",
+            "amazon.alexa : On"
+        ]
+    },
+    "GA":{
+        "Country":"Gabon",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.webos.app.browser : On",
+            "com.webos.app.livetv : Off",
+            "net.mbc.shahid-lgapp : On",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "GB":{
+        "Country":"United Kingdom",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.disney.disneyplus-prod : On",
+            "ui30 : On",
+            "com.webos.app.lgchannels : Off",
+            "netflix : On",
+            "amazon.alexa : On"
+        ]
+    },
+    "GD":{
+        "Country":"Grenada",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "amazon : On",
+            "com.disney.disneyplus-prod : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "GE":{
+        "Country":"Georgia",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "com.webos.app.browser : On",
+            "com.webos.app.livetv : Off",
+            "ivi : On",
+            "netflix : On",
+            "com.685631.3411 : On",
+            "yota.play : On"
+        ]
+    },
+    "GH":{
+        "Country":"Ghana",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.webos.app.browser : On",
+            "com.webos.app.livetv : Off",
+            "net.mbc.shahid-lgapp : On",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "GM":{
+        "Country":"Gambia",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.webos.app.browser : On",
+            "com.webos.app.livetv : Off",
+            "net.mbc.shahid-lgapp : On",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "GN":{
+        "Country":"Guinea",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.webos.app.browser : On",
+            "com.webos.app.livetv : Off",
+            "net.mbc.shahid-lgapp : On",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "GQ":{
+        "Country":"Equatorial Guinea",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.webos.app.browser : On",
+            "com.webos.app.livetv : Off",
+            "net.mbc.shahid-lgapp : On",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "GR":{
+        "Country":"Greece",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.disney.disneyplus-prod : On",
+            "ui30 : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "GT":{
+        "Country":"Guatemala",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "amazon : On",
+            "com.disney.disneyplus-prod : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "GY":{
+        "Country":"Guyana",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "amazon : On",
+            "com.disney.disneyplus-prod : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "HK":{
+        "Country":"Hong Kong",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "amazon : On",
+            "com.disney.disneyplus-prod : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "HK7":{
+        "Country":"HK_Others",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "amazon : On",
+            "com.webos.app.browser : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "HN":{
+        "Country":"Honduras",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "amazon : On",
+            "com.disney.disneyplus-prod : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "HR":{
+        "Country":"Croatia",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.disney.disneyplus-prod : On",
+            "ui30 : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "HU":{
+        "Country":"Hungary",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.disney.disneyplus-prod : On",
+            "ui30 : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "ID":{
+        "Country":"Indonesia",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "amazon : On",
+            "com.webos.app.livetv : Off",
+            "netflix : On",
+            "amazon.alexa : On",
+            "hotstarsea : On"
+        ]
+    },
+    "IE":{
+        "Country":"Ireland",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.disney.disneyplus-prod : On",
+            "ui30 : On",
+            "com.webos.app.lgchannels : Off",
+            "netflix : On",
+            "amazon.alexa : On"
+        ]
+    },
+    "IL":{
+        "Country":"Israel",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "amazon : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On",
+            "disneyplus : On"
+        ]
+    },
+    "IL7":{
+        "Country":"IL_Others",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "amazon : On",
+            "com.webos.app.browser : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "IN":{
+        "Country":"India",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "amazon : On",
+            "com.webos.app.livetv : Off",
+            "netflix : On",
+            "com.webos.app.discovery : On",
+            "amazon.alexa : On"
+        ]
+    },
+    "IQ":{
+        "Country":"Iraq",
+        "App:Status":[
+            "amazon : On",
+            "webos.tod.tv : On",
+            "com.webos.app.voice : On",
+            "com.webos.app.livetv : Off",
+            "net.mbc.shahid-lgapp : On",
+            "amazon.alexa : Off",
+            "netflix : On",
+            "disneyplus : On"
+        ]
+    },
+    "IR":{
+        "Country":"Iran",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "com.webos.app.livetv : Off"
+        ]
+    },
+    "IS":{
+        "Country":"Iceland",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.disney.disneyplus-prod : On",
+            "ui30 : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "IT":{
+        "Country":"Italy",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.disney.disneyplus-prod : On",
+            "ui30 : On",
+            "com.webos.app.lgchannels : Off",
+            "netflix : On",
+            "amazon.alexa : On"
+        ]
+    },
+    "JA7":{
+        "Country":"JA_OTHERS",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "amazon : On",
+            "com.webos.app.browser : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "JM":{
+        "Country":"Jamaica",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "amazon : On",
+            "com.disney.disneyplus-prod : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "JO":{
+        "Country":"Jordan",
+        "App:Status":[
+            "amazon : On",
+            "webos.tod.tv : On",
+            "com.webos.app.voice : On",
+            "com.webos.app.livetv : Off",
+            "net.mbc.shahid-lgapp : On",
+            "amazon.alexa : Off",
+            "netflix : On",
+            "disneyplus : On"
+        ]
+    },
+    "JP":{
+        "Country":"Japan",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "jp.happyon.app : On",
+            "com.disney.disneyplus-prod : On",
+            "com.webos.app.lgchannels : Off",
+            "netflix : On",
+            "com.webos.app.discovery : On",
+            "amazon.alexa : On",
+            "jp.co.tver.tvapp : On",
+            "jp.nhk.plus : On",
+            "u.next : On"
+        ]
+    },
+    "JP7":{
+        "Country":"JP_OTHERS",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "amazon : On",
+            "com.webos.app.browser : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "KE":{
+        "Country":"Kenya",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.webos.app.browser : On",
+            "com.webos.app.livetv : Off",
+            "net.mbc.shahid-lgapp : On",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "KG":{
+        "Country":"Kyrgyzstan",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "com.webos.app.browser : On",
+            "com.webos.app.livetv : Off",
+            "ivi : On",
+            "netflix : On",
+            "com.685631.3411 : On",
+            "yota.play : On"
+        ]
+    },
+    "KR":{
+        "Country":"Korea",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.disney.disneyplus-prod : On",
+            "com.webos.app.lgchannels : Off",
+            "pooq : On",
+            "netflix : On",
+            "coupangplay : On",
+            "amazon.alexa : On"
+        ]
+    },
+    "KR7":{
+        "Country":"KR_Others",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "amazon : On",
+            "com.webos.app.browser : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "KW":{
+        "Country":"Kuwait",
+        "App:Status":[
+            "amazon : On",
+            "webos.tod.tv : On",
+            "com.webos.app.voice : On",
+            "com.webos.app.livetv : Off",
+            "net.mbc.shahid-lgapp : On",
+            "amazon.alexa : Off",
+            "netflix : On",
+            "disneyplus : On"
+        ]
+    },
+    "KZ":{
+        "Country":"Kazakhstan",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "com.webos.app.browser : On",
+            "mgg4.5.channelplus : Off",
+            "ivi : On",
+            "netflix : On",
+            "com.685631.3411 : On",
+            "yota.play : On"
+        ]
+    },
+    "LB":{
+        "Country":"Lebanon",
+        "App:Status":[
+            "amazon : On",
+            "webos.tod.tv : On",
+            "com.webos.app.voice : On",
+            "com.webos.app.livetv : Off",
+            "net.mbc.shahid-lgapp : On",
+            "amazon.alexa : Off",
+            "netflix : On",
+            "disneyplus : On"
+        ]
+    },
+    "LI":{
+        "Country":"Liechtenstein",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.disney.disneyplus-prod : On",
+            "ui30 : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "LK":{
+        "Country":"Sri Lanka",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "amazon : On",
+            "com.webos.app.browser : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "LR":{
+        "Country":"Liberia",
+        "App:Status":[
+            "amazon : On",
+            "webos.tod.tv : On",
+            "com.webos.app.browser : On",
+            "com.webos.app.voice : On",
+            "com.webos.app.livetv : Off",
+            "net.mbc.shahid-lgapp : On",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "LT":{
+        "Country":"Lithuania",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.disney.disneyplus-prod : On",
+            "ui30 : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "LU":{
+        "Country":"Luxembourg",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.disney.disneyplus-prod : On",
+            "ui30 : On",
+            "com.webos.app.lgchannels : Off",
+            "netflix : On",
+            "amazon.alexa : On"
+        ]
+    },
+    "LV":{
+        "Country":"Latvia",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.disney.disneyplus-prod : On",
+            "ui30 : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "LY":{
+        "Country":"Libyan Arab Jamahiriya",
+        "App:Status":[
+            "amazon : On",
+            "webos.tod.tv : On",
+            "com.webos.app.voice : On",
+            "com.webos.app.livetv : Off",
+            "net.mbc.shahid-lgapp : On",
+            "amazon.alexa : Off",
+            "netflix : On",
+            "disneyplus : On"
+        ]
+    },
+    "MA":{
+        "Country":"Morocco",
+        "App:Status":[
+            "amazon : On",
+            "webos.tod.tv : On",
+            "com.webos.app.voice : On",
+            "com.webos.app.livetv : Off",
+            "net.mbc.shahid-lgapp : On",
+            "amazon.alexa : Off",
+            "netflix : On",
+            "disneyplus : On"
+        ]
+    },
+    "ME":{
+        "Country":"Montenegro",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.disney.disneyplus-prod : On",
+            "ui30 : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "MK":{
+        "Country":"Republic of Macedonia",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.disney.disneyplus-prod : On",
+            "ui30 : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "ML":{
+        "Country":"Mali",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.webos.app.browser : On",
+            "com.webos.app.livetv : Off",
+            "net.mbc.shahid-lgapp : On",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "MM":{
+        "Country":"Myanmar",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "amazon : On",
+            "com.webos.app.browser : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "MR":{
+        "Country":"Mauritania",
+        "App:Status":[
+            "amazon : On",
+            "webos.tod.tv : On",
+            "com.webos.app.browser : On",
+            "com.webos.app.voice : On",
+            "com.webos.app.livetv : Off",
+            "net.mbc.shahid-lgapp : On",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "MT":{
+        "Country":"Malta",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.disney.disneyplus-prod : On",
+            "ui30 : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "MW":{
+        "Country":"Malawi",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "amazon : On",
+            "com.webos.app.browser : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On",
+            "net.mbc.shahid-lgapp : Off"
+        ]
+    },
+    "MX":{
+        "Country":"Mexico",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "amazon : On",
+            "com.disney.disneyplus-prod : On",
+            "com.webos.app.lgchannels : Off",
+            "netflix : On",
+            "amazon.alexa : On"
+        ]
+    },
+    "MY":{
+        "Country":"Malaysia",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "amazon : On",
+            "com.webos.app.livetv : Off",
+            "netflix : On",
+            "amazon.alexa : On",
+            "hotstarsea : On"
+        ]
+    },
+    "NG":{
+        "Country":"Nigeria",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.webos.app.browser : On",
+            "com.webos.app.livetv : Off",
+            "net.mbc.shahid-lgapp : On",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "NI":{
+        "Country":"Nicaragua",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "amazon : On",
+            "com.disney.disneyplus-prod : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "NL":{
+        "Country":"Netherlands",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.disney.disneyplus-prod : On",
+            "ui30 : On",
+            "com.webos.app.lgchannels : Off",
+            "netflix : On",
+            "amazon.alexa : On"
+        ]
+    },
+    "NO":{
+        "Country":"Norway",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "ui30 : On",
+            "com.webos.app.lgchannels : Off",
+            "com.disney.disneyplus-prod : On",
+            "netflix : On",
+            "amazon.alexa : On"
+        ]
+    },
+    "NZ":{
+        "Country":"New Zealand",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "amazon : On",
+            "com.disney.disneyplus-prod : On",
+            "com.webos.app.livetv : Off",
+            "netflix : On",
+            "amazon.alexa : On"
+        ]
+    },
+    "OM":{
+        "Country":"Oman",
+        "App:Status":[
+            "amazon : On",
+            "webos.tod.tv : On",
+            "com.webos.app.voice : On",
+            "com.webos.app.livetv : Off",
+            "net.mbc.shahid-lgapp : On",
+            "amazon.alexa : Off",
+            "netflix : On",
+            "disneyplus : On"
+        ]
+    },
+    "PA":{
+        "Country":"Panama",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "amazon : On",
+            "com.disney.disneyplus-prod : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "PE":{
+        "Country":"Peru",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "amazon : On",
+            "com.disney.disneyplus-prod : On",
+            "com.webos.app.lgchannels : Off",
+            "netflix : On",
+            "amazon.alexa : On"
+        ]
+    },
+    "PH":{
+        "Country":"Philippines",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "amazon : On",
+            "com.webos.app.livetv : Off",
+            "netflix : On",
+            "amazon.alexa : On",
+            "disneyplusph : On"
+        ]
+    },
+    "PK":{
+        "Country":"Pakistan",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.webos.app.browser : On",
+            "com.webos.app.livetv : Off",
+            "net.mbc.shahid-lgapp : On",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "PL":{
+        "Country":"Poland",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.disney.disneyplus-prod : On",
+            "ui30 : On",
+            "com.webos.app.livetv : Off",
+            "netflix : On",
+            "amazon.alexa : On"
+        ]
+    },
+    "PR":{
+        "Country":"Puerto Rico",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "amazon : On",
+            "com.disney.disneyplus-prod : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "PS":{
+        "Country":"Occupied Palestinian Territory",
+        "App:Status":[
+            "amazon : On",
+            "webos.tod.tv : On",
+            "com.webos.app.voice : On",
+            "com.webos.app.livetv : Off",
+            "net.mbc.shahid-lgapp : On",
+            "amazon.alexa : Off",
+            "netflix : On",
+            "disneyplus : On"
+        ]
+    },
+    "PT":{
+        "Country":"Portugal",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "ui30 : On",
+            "com.webos.app.lgchannels : Off",
+            "com.disney.disneyplus-prod : On",
+            "netflix : On",
+            "amazon.alexa : On"
+        ]
+    },
+    "PY":{
+        "Country":"Paraguay",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "amazon : On",
+            "com.disney.disneyplus-prod : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "QA":{
+        "Country":"Qatar",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "webos.tod.tv : On",
+            "com.webos.app.livetv : Off",
+            "net.mbc.shahid-lgapp : On",
+            "amazon.alexa : Off",
+            "netflix : On",
+            "disneyplus : On"
+        ]
+    },
+    "RO":{
+        "Country":"Romania",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "amazon : On",
+            "ui30 : On",
+            "com.disney.disneyplus-prod : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "RS":{
+        "Country":"Serbia",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "amazon : On",
+            "ui30 : On",
+            "com.disney.disneyplus-prod : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "RU":{
+        "Country":"Russian Federation",
+        "App:Status":[
+            "mgg4.5.channelplus : Off",
+            "ivi : On",
+            "com.685631.3411 : On",
+            "com.27668.188461 : On",
+            "yota.play : On",
+            "com.lgshop.app79 : On"
+        ]
+    },
+    "RW":{
+        "Country":"Rwanda",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.webos.app.browser : On",
+            "com.webos.app.livetv : Off",
+            "net.mbc.shahid-lgapp : On",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "SA":{
+        "Country":"Saudi Arabia",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "webos.tod.tv : On",
+            "com.webos.app.livetv : Off",
+            "net.mbc.shahid-lgapp : On",
+            "netflix : On",
+            "amazon.alexa : On",
+            "disneyplus : On"
+        ]
+    },
+    "SD":{
+        "Country":"Sudan",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "com.webos.app.livetv : Off"
+        ]
+    },
+    "SE":{
+        "Country":"Sweden",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "ui30 : On",
+            "com.webos.app.lgchannels : Off",
+            "com.disney.disneyplus-prod : On",
+            "netflix : On",
+            "amazon.alexa : On"
+        ]
+    },
+    "SG":{
+        "Country":"Singapore",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "amazon : On",
+            "com.disney.disneyplus-prod : On",
+            "com.webos.app.livetv : Off",
+            "netflix : On",
+            "amazon.alexa : On"
+        ]
+    },
+    "SI":{
+        "Country":"Slovenia",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "amazon : On",
+            "ui30 : On",
+            "com.disney.disneyplus-prod : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "SK":{
+        "Country":"Slovakia",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "amazon : On",
+            "ui30 : On",
+            "com.disney.disneyplus-prod : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "SL":{
+        "Country":"Sierra Leone",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.webos.app.browser : On",
+            "com.webos.app.livetv : Off",
+            "net.mbc.shahid-lgapp : On",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "SN":{
+        "Country":"Senegal",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.webos.app.browser : On",
+            "com.webos.app.livetv : Off",
+            "net.mbc.shahid-lgapp : On",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "SV":{
+        "Country":"El Salvador",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "amazon : On",
+            "com.disney.disneyplus-prod : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "SY":{
+        "Country":"Syrian Arab Republic",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "com.webos.app.livetv : Off"
+        ]
+    },
+    "TG":{
+        "Country":"Togo",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "amazon : On",
+            "com.webos.app.browser : On",
+            "com.webos.app.livetv : Off",
+            "net.mbc.shahid-lgapp : On",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "TH":{
+        "Country":"Thailand",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "amazon : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On",
+            "hotstarsea : On"
+        ]
+    },
+    "TN":{
+        "Country":"Tunisia",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "webos.tod.tv : On",
+            "com.webos.app.livetv : Off",
+            "net.mbc.shahid-lgapp : On",
+            "amazon.alexa : Off",
+            "netflix : On",
+            "disneyplus : On"
+        ]
+    },
+    "TR":{
+        "Country":"Turkiye(T\u00fcrkiye)",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.webos.app.browser : On",
+            "com.disney.disneyplus-prod : On",
+            "com.webos.app.livetv : Off",
+            "net.mbc.shahid-lgapp : On",
+            "netflix : On",
+            "amazon.alexa : On"
+        ]
+    },
+    "TT":{
+        "Country":"Trinidad and Tobago",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "amazon : On",
+            "com.disney.disneyplus-prod : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "TW":{
+        "Country":"Taiwan",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "amazon : On",
+            "com.disney.disneyplus-prod : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "TW7":{
+        "Country":"TW_Others",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "amazon : On",
+            "com.webos.app.browser : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "TZ":{
+        "Country":"United Republic of Tanzania",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.webos.app.browser : On",
+            "com.webos.app.livetv : Off",
+            "net.mbc.shahid-lgapp : On",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "UA":{
+        "Country":"Ukraine",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.webos.app.browser : On",
+            "ui30 : On",
+            "mgg4.5.channelplus : Off",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "UG":{
+        "Country":"Uganda",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.webos.app.browser : On",
+            "com.webos.app.livetv : Off",
+            "net.mbc.shahid-lgapp : On",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "US":{
+        "Country":"U.S.A",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.disney.disneyplus-prod : On",
+            "com.webos.app.livetv : Off",
+            "com.movenetworks.app.sling-tv-sling-production : On",
+            "com.webos.app.lgchannels : On",
+            "netflix : On",
+            "amazon.alexa : On"
+        ]
+    },
+    "US7":{
+        "Country":"US_Others",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "amazon : On",
+            "com.webos.app.browser : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "UY":{
+        "Country":"Uruguay",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "amazon : On",
+            "com.disney.disneyplus-prod : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "UZ":{
+        "Country":"Uzbekistan",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "com.webos.app.browser : On",
+            "com.webos.app.livetv : Off",
+            "ivi : On",
+            "amazon.alexa : Off",
+            "netflix : On",
+            "com.685631.3411 : On",
+            "yota.play : On"
+        ]
+    },
+    "VC":{
+        "Country":"Saint Vincent and the Grenadines",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "amazon : On",
+            "com.disney.disneyplus-prod : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "VE":{
+        "Country":"Venezuela",
+        "App:Status":[
+            "com.webos.app.voice : On",
+            "amazon : On",
+            "com.disney.disneyplus-prod : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    },
+    "VN":{
+        "Country":"Vietnam",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.webos.app.browser : On",
+            "com.webos.app.livetv : Off",
+            "amazon.alexa : Off",
+            "netflix : On",
+            "com.fpt.fptplay : On"
+        ]
+    },
+    "YE":{
+        "Country":"Yemen",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "webos.tod.tv : On",
+            "com.webos.app.livetv : Off",
+            "net.mbc.shahid-lgapp : On",
+            "amazon.alexa : Off",
+            "netflix : On",
+            "disneyplus : On"
+        ]
+    },
+    "ZA":{
+        "Country":"South Africa",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.webos.app.browser : On",
+            "com.webos.app.livetv : Off",
+            "net.mbc.shahid-lgapp : On",
+            "amazon.alexa : Off",
+            "netflix : On",
+            "disneyplus : On"
+        ]
+    },
+    "ZM":{
+        "Country":"Zambia",
+        "App:Status":[
+            "amazon : On",
+            "com.webos.app.voice : On",
+            "com.webos.app.browser : On",
+            "com.webos.app.livetv : Off",
+            "net.mbc.shahid-lgapp : On",
+            "amazon.alexa : Off",
+            "netflix : On"
+        ]
+    }
+}
