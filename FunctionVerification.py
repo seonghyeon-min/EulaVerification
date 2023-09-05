@@ -1,3 +1,4 @@
+from collections import defaultdict
 import os
 import json
 import time
@@ -142,15 +143,52 @@ def GetqcardTitle() :
         
     return qCardTitlelist
 
+def GetHKSetting() :
+    '''
+    luna-send -n 1 -f luna://com.webos.service.sdx/send '{"serviceName":"service
+    _setting_secure","url":"getConfig","methodType":"REQ_SSL_POST_METHOD", "bodyData
+    ":"{\"requester\":\"hot_key\"}", "contentType":"application/json"}'
+    '''
+    HotKeySettingData = defaultdict(list)
+    HotkeySettingDict = defaultdict(list)
+    api = 'luna://com.webos.service.sdx/send'
+    payload = {"serviceName":"service_setting_secure",
+               "url":"getConfig",
+               "methodType":"REQ_SSL_POST_METHOD", 
+               "bodyData":"{\"requester\":\"hot_key\"}", "contentType":"application/json"}
+    ret = lunaCommand(api, payload)
+    retObj = json.loads(ret)
+    bRet, HotKeyData = jsonGetKeyValue(retObj, 'serverResponse') 
+    if bRet == False : return 0
+    resp = json.loads(HotKeyData['response'])['mapping_info']
+    
+    for app in resp :
+        for title, param in app.items() :
+            for key, value in param.items() :
+                if key == 'launch_param' : pass
+                else :
+                    HotKeySettingData[title].append((key, value))
+                    
+    for item in HotKeySettingData :
+        dictmp = dict()
+        for k, v in HotKeySettingData[item] : 
+            dictmp[k] = v
+        HotkeySettingDict[item].append(dictmp)
+    
+    return HotkeySettingDict
+    
+    
 def MakeData() :
     Country_code = GetCountryInfo()
     terms_code = GetEulaSettingsinDevice()
     qCardTitle = GetqcardTitle()
+    hotkeySetting = GetHKSetting()
     
     object_db = {
         'country_code' : Country_code,
         'terms_code' : terms_code,
         'Q-Card Title' : qCardTitle,
+        'HotKey' : hotkeySetting,
     }
     
     print()
@@ -168,6 +206,11 @@ def GetQcardSettingsinDB() :
     with open('qcard.json', 'r') as file :
         qCard_db = json.loads(file.read())
     return qCard_db
+
+def GetHKSettingsinDB() :
+    with open('hotkey.json', 'r') as file :
+        hk_db = json.loads(file.read())
+    return hk_db
 
 def SetCountry(objCountry) :
     '''
@@ -194,6 +237,7 @@ def EulaTest(DeviceData, CntryCode) :
     
     if DeviceData['country_code'] in ServerData.keys() :
         print('> -- start Eula Test -- <')
+        time.sleep(3)
         if DeviceData['terms_code'] == ServerData[code]['terms_code'] :
             print(' > --------------------------------------------------- < ')
             result = {'returnValue' : {'Result' : True, 'CountryCode' : code, 'termsCode' : DeviceData['terms_code']}}
@@ -202,8 +246,8 @@ def EulaTest(DeviceData, CntryCode) :
         else :
             print('> ------------------------------------------------- <')
             result = {'returnValue' : {'Result' : False, 
-                                       'CountryCode' : code, 
-                                       'messages' : '[WARN] : Check EulaData/Loading Status.'}}
+                                        'CountryCode' : code, 
+                                        'messages' : '[WARN] : Check EulaData/Loading Status.'}}
             print(json.dumps(result, indent=4))
         
     else :
@@ -218,22 +262,64 @@ def QcardTest(DeviceData, CntryCode) :
     
     if DeviceData['country_code'] in ServerData.keys() :
         print('> -- start Q-card Test -- <')
+        time.sleep(3)
         if sorted(ServerData[code]['Q-Card Title']) == sorted(DeviceData['Q-Card Title']) :
             print('> ------------------------------------------------- <')
-            result = {'returnValue' : {'Result' : True, 'CountryCode' : code, 'qCardList' : DeviceData['Q-Card Title']}}
+            result = {'returnValue' : {'Result' : True, 
+                                        'CountryCode' : code, 
+                                        'qCardList' : DeviceData['Q-Card Title']}}
             print(json.dumps(result, indent=4))
             
         else :
             print('> ------------------------------------------------- <')
             result = {'returnValue' : {'Result' : False, 
-                                       'CountryCode' : code, 
-                                       'messages' : '[WARN] : Check Q-Card Server Data.'}}
+                                        'CountryCode' : code, 
+                                        'messages' : '[WARN] : Check Q-Card Server Data.'}}
             print(json.dumps(result, indent=4))
     else :
         print('> -- Please Check the country/Server Data')
         
     return result
 
+def HotKeyTest(DeviceData, CntryCode):
+    ServerData = GetHKSettingsinDB()
+    code = CntryCode
+    flag = 'N'
+    result = dict() 
+    
+    if DeviceData['country_code'] in ServerData.keys() :
+        print('> -- start Hot Key Test -- <')
+        time.sleep(3)
+        param = ServerData[code]
+        for key in param : 
+            status, Id = DeviceData['HotKey'][key][0].values()
+            status = str(status)
+            if (param[key][0]['app_id'] == Id) and (param[key][0]['isActive'] == status) :
+                flag = 'Y'
+            else :
+                flag = 'N'
+                
+
+        if flag == 'Y' : 
+            print('> ------------------------------------------------- <')
+            result = {'returnValue' : {'Result' : True, 
+                                    'CountryCode' : code, 
+                                    'qCardList' : DeviceData['HotKey']}}
+            print(json.dumps(result, indent=4))
+        
+        else :
+            print('> ------------------------------------------------- <')
+            result = {'returnValue' : {'Result' : False, 
+                                    'CountryCode' : code, 
+                                    'qCardList' : DeviceData['HotKey']}}
+            print(json.dumps(result, indent=4))
+            
+    else :
+        print('> -- Please Check the country/Server Data')
+        
+
+
+# ======================================================================================================= #
 def TestConfing() :
     TestFunc = {}
     Database = MergeData()                # type : dict
@@ -307,6 +393,7 @@ Mode :
 FunctionTest :
     10. Eula
     11. Q-card
+    12. Hot-key
     
     ''')
     return
@@ -331,5 +418,5 @@ if __name__ == '__main__' :
                 
         elif cmd == '10' :  EulaTest(DeviceData, CntryCode)
         elif cmd == '11' :  QcardTest(DeviceData, CntryCode)
-        
+        elif cmd == '12' :  HotKeyTest(DeviceData, CntryCode)        
         
