@@ -107,7 +107,7 @@ def GetEulaSettingsinDevice() :
         print('[WARN] EUlA needs to be loaded ')
         api = 'palm://com.webos.applicationManager/launch'
         payload = {"id":"com.webos.app.firstuse-overlay", 
-                   "params":{"target":"eula", "context":"eulaUpdate"}}
+                    "params":{"target":"eula", "context":"eulaUpdate"}}
         ret = lunaCommand(api, payload)
         time.sleep(5)
         retObj = json.loads(ret)
@@ -154,9 +154,9 @@ def GetHKSetting() :
     HotkeySettingDict = defaultdict(list)
     api = 'luna://com.webos.service.sdx/send'
     payload = {"serviceName":"service_setting_secure",
-               "url":"getConfig",
-               "methodType":"REQ_SSL_POST_METHOD", 
-               "bodyData":"{\"requester\":\"hot_key\"}", "contentType":"application/json"}
+                "url":"getConfig",
+                "methodType":"REQ_SSL_POST_METHOD", 
+                "bodyData":"{\"requester\":\"hot_key\"}", "contentType":"application/json"}
     ret = lunaCommand(api, payload)
     retObj = json.loads(ret)
     bRet, HotKeyData = jsonGetKeyValue(retObj, 'serverResponse') 
@@ -318,6 +318,30 @@ def HotKeyTest(DeviceData, CntryCode):
     else :
         print('> -- Please Check the country/Server Data')
         
+        
+def HomeShelfTest() :
+    '''
+    luna-send -n 1 -f luna://com.webos.service.sdx/send 
+    '{"serviceName":"service_setting_secure", "url":"getConfig", "methodType":"REQ_SSL_POST_METHOD", "bodyData":"{\"requester\":\"ai_home\"}","contentType":"application/json"}'
+    '''
+    
+    api = 'luna://com.webos.service.sdx/send'
+    payload = {"serviceName":"service_setting_secure", "url":"getConfig", "methodType":"REQ_SSL_POST_METHOD", "bodyData":"{\"requester\":\"ai_home\"}","contentType":"application/json"}
+    ret = lunaCommand(api, payload)
+    retObj = json.loads(ret)
+    bRet, homeshelfData = jsonGetKeyValue(retObj, 'serverResponse')
+    if bRet == False : return 0
+    res = json.loads(homeshelfData['response'])['ai_home_info']
+    result = {}
+    homeshelf = {}
+
+    for shelfdata in res : 
+        homeshelf[shelfdata['shelfRank']] = shelfdata['shelfId']
+    
+    result = {'returnValue' : {'Result' : True,
+                            'ai_home_info' : homeshelf } }
+
+    print(json.dumps(result, indent=4))
 
 def MagicLinkTest() :  # supportedByTipsServer -> True or False ? 
     '''
@@ -364,7 +388,7 @@ def EPGTest() : # tuner_ch_map -> false, tuner_epg -> false because tuner isn't 
     '''
     
     api = 'luna://com.webos.service.sdx/send'
-    payload = {"serviceName":"service_setting_secure","url":"getConfig","methodType":"REQ_SSL_POST_METHOD","bodyData":{"requester" : "epg"}, "contentType" : "application/json"}
+    payload = {"serviceName":"service_setting_secure","url":"getConfig","methodType":"REQ_SSL_POST_METHOD","bodyData": {"requester" : "epg"}, "contentType" : "application/json"}
     ret = lunaCommand(api, payload)
     retObj = json.loads(ret)
     bRet, epgData = jsonGetKeyValue(retObj, 'serverResponse')
@@ -382,11 +406,7 @@ def EPGTest() : # tuner_ch_map -> false, tuner_epg -> false because tuner isn't 
                 flag = 'Y'
             else :
                 tuner_result[epgInfo['id']] = epgInfo['isActive']
-                flag = 'N'
-            
-        elif ('tuner_ch_map' not in epgInfo.keys()) or ('tuner_epg' not in epgInfo.keys()) :
-            flag = 'N' 
-    
+                flag = 'N'   
     
     if flag == 'Y' :
         result = {'returnValue' : {
@@ -404,6 +424,7 @@ def EPGTest() : # tuner_ch_map -> false, tuner_epg -> false because tuner isn't 
     print(json.dumps(result, indent=4))
 
 # ======================================================================================================= #
+
 def TestConfing() :
     TestFunc = {}
     Database = MergeData()                      # type : dict
@@ -425,15 +446,7 @@ def AutoMode(DeviceData, CntryCode) :
     TConfig = TestConfing()
     TestFunc = ['Eula', 'qCard', 'HotKey']
     Testconfig = {}
-    '''
-    DeviceDB = {
-        'country_code' : Country_code,
-        'terms_code' : terms_code,
-        'Q-Card Title' : qCardTitle,
-        'HotKey' : ...
-        '
-    }
-    '''   
+
     for idx, func in enumerate(TestFunc) :
         if (code in ServerDB.keys()) and (func != 'HotKey') :
             if sorted(DeviceDB[TConfig[func]]) == sorted(ServerDB[code][TConfig[func]]) :
@@ -509,8 +522,9 @@ FunctionTest :
     10. Eula
     11. Q-card
     12. Hot-key
-    13. MagicLink
-    14. EPG
+    13. HomeShelf
+    14. MagicLink
+    15. EPG
     ''')
     return
             
@@ -535,6 +549,6 @@ if __name__ == '__main__' :
         elif cmd == '10' :  EulaTest(DeviceData, CntryCode)
         elif cmd == '11' :  QcardTest(DeviceData, CntryCode)
         elif cmd == '12' :  HotKeyTest(DeviceData, CntryCode)
-        elif cmd == '13' :  MagicLinkTest()
-        elif cmd == '14' :  EPGTest()
-        
+        elif cmd == '13' :  HomeShelfTest()
+        elif cmd == '14' :  MagicLinkTest()
+        elif cmd == '15' :  EPGTest()
