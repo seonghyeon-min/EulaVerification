@@ -19,6 +19,7 @@ def jsonGetKeyValue(obj, key) :
             return True, value
         return False, None
     
+    
     except Exception as ex :
         print('Exception : ', ex)
         return False, None
@@ -40,7 +41,7 @@ def OpenJsonFile(file) :
     return data
     
 def MergeData() :
-    JsonList = ['eula.json', 'qcard.json']
+    JsonList = ['eula.json', 'qcard.json', 'hotkey.json']
     basedata = {}
     
     for json in JsonList :
@@ -252,7 +253,7 @@ def EulaTest(DeviceData, CntryCode) :
         
     else :
         print('> -- Warning : Please check the country code -- <')           
-             
+
     return result
         
 def QcardTest(DeviceData, CntryCode) :
@@ -290,7 +291,7 @@ def HotKeyTest(DeviceData, CntryCode):
     if DeviceData['country_code'] in ServerData.keys() :
         print('> -- start Hot Key Test -- <')
         time.sleep(3)
-        param = ServerData[code]
+        param = ServerData[code]['HotKey']
         for key in param : 
             status, Id = DeviceData['HotKey'][key][0].values()
             status = str(status)
@@ -318,15 +319,98 @@ def HotKeyTest(DeviceData, CntryCode):
         print('> -- Please Check the country/Server Data')
         
 
+def MagicLinkTest() :  # supportedByTipsServer -> True or False ? 
+    '''
+    luna-send -n 1 -f luna://com.webos.service.sdx/send 
+    '{"serviceName":"service_setting_secure","url":"getConfig","methodType":"REQ_SSL_POST_METHOD", 
+    "ric" : "KIC", "bodyData":"{\"requester\":\"nlp\"}", "contentType" : "application/json"}'
+    '''
+    
+    api = 'luna://com.webos.service.sdx/send'
+    payload = {"serviceName":"service_setting_secure",
+                "url":"getConfig","methodType":"REQ_SSL_POST_METHOD", 
+                "ric" : "KIC", "bodyData":"{\"requester\":\"nlp\"}",
+                "contentType" : "application/json"}
+    ret = lunaCommand(api, payload)
+    retObj = json.loads(ret)
+    bRet, MagicLinkData = jsonGetKeyValue(retObj, 'serverResponse')
+    if bRet == False : return 0 
+    res = json.loads(MagicLinkData['response'])
+    result = {}
+
+    '''
+    magicLink : {'orderedCategory': ['youtube', 'genre', 'web', 'person', 'ost'], 'defaultCategory': 'youtube', 'supportedByTipsServer': True, 'ipChannelSupported': True, 'switch': True}
+    '''
+    
+    if 'magicLink' in res.keys() :
+        if res['magicLink']['supportedByTipsServer'] == True :
+            print('> ------------------------------------------------- <')
+            result = {'returnValue' : {'Result' : True,
+                                    'supportedByTipsServer' : res['magicLink']['supportedByTipsServer'] } }
+            print(json.dumps(result, indent=4))
+            
+        else :
+            print('> ------------------------------------------------- <')
+            result = {'returnValue' : {'Result' : False,
+                                    'supportedByTipsServer' : res['magicLink']['supportedByTipsServer'] } }
+            print(json.dumps(result, indent=4))
+        
+    else :
+        print('> -- Please Check \'magicLink\' Key is in Server -- <')
+
+def EPGTest() : # tuner_ch_map -> false, tuner_epg -> false because tuner isn't supported 
+    '''
+    luna-send -n 1 -f luna://com.webos.service.sdx/send '{"serviceName":"service_setting_secure","url":"getConfig","methodType":"REQ_SSL_POST_METHOD","bodyData":{"requester" : "epg"}, "contentType" : "application/json"}'
+    '''
+    
+    api = 'luna://com.webos.service.sdx/send'
+    payload = {"serviceName":"service_setting_secure","url":"getConfig","methodType":"REQ_SSL_POST_METHOD","bodyData":{"requester" : "epg"}, "contentType" : "application/json"}
+    ret = lunaCommand(api, payload)
+    retObj = json.loads(ret)
+    bRet, epgData = jsonGetKeyValue(retObj, 'serverResponse')
+    if bRet == False : return 0
+    res = json.loads(epgData['response'])['epg_info']
+    flag = 'N'
+    
+    tuner_result = {}
+    result = {}
+    
+    for epgInfo in res :
+        if (epgInfo['id'] == 'tuner_ch_map') or (epgInfo['id'] == 'tuner_epg') :
+            if epgInfo['isActive'] == False :
+                tuner_result[epgInfo['id']] = epgInfo['isActive']
+                flag = 'Y'
+            else :
+                tuner_result[epgInfo['id']] = epgInfo['isActive']
+                flag = 'N'
+            
+        elif ('tuner_ch_map' not in epgInfo.keys()) or ('tuner_epg' not in epgInfo.keys()) :
+            flag = 'N' 
+    
+    
+    if flag == 'Y' :
+        result = {'returnValue' : {
+                                'Result' : True,
+                                'epgInfo' : tuner_result
+                                } 
+                }
+    else :
+        result = {'returnValue' : {
+                                'Result' : False,
+                                'epgInfo' : tuner_result
+                                } 
+                }
+
+    print(json.dumps(result, indent=4))
 
 # ======================================================================================================= #
 def TestConfing() :
     TestFunc = {}
-    Database = MergeData()                # type : dict
-    CntryCode = GetCountryInfo()          # CountryCode : two_code
+    Database = MergeData()                      # type : dict
+    CntryCode = GetCountryInfo()                # CountryCode : two_code
     Keylist = list(Database[CntryCode].keys())  # ['country_three_code', 'country_info', 'terms_code', 'Q-card Title'...]
     StdIdx = Keylist.index('terms_code')
-    Funclst= ['Eula', 'qCard']
+    Funclst= ['Eula', 'qCard', 'HotKey']
     
     for func in Funclst :
         TestFunc[func] = Keylist[StdIdx]
@@ -335,25 +419,27 @@ def TestConfing() :
     return TestFunc
     
 def AutoMode(DeviceData, CntryCode) :
-    DatabaseDB = MergeData()             # DB
+    ServerDB = MergeData()             # DB
     DeviceDB = DeviceData                # Device
     code = CntryCode                     # Setting Device Country code
     TConfig = TestConfing()
-    TestFunc = ['Eula', 'qCard']
+    TestFunc = ['Eula', 'qCard', 'HotKey']
     Testconfig = {}
     '''
     DeviceDB = {
         'country_code' : Country_code,
         'terms_code' : terms_code,
         'Q-Card Title' : qCardTitle,
+        'HotKey' : ...
+        '
     }
     '''   
-    for idx, func in enumerate(TestFunc) : 
-        if (code in DatabaseDB.keys()) :
-            if sorted(DeviceDB[TConfig[func]]) == sorted(DatabaseDB[code][TConfig[func]]) :
+    for idx, func in enumerate(TestFunc) :
+        if (code in ServerDB.keys()) and (func != 'HotKey') :
+            if sorted(DeviceDB[TConfig[func]]) == sorted(ServerDB[code][TConfig[func]]) :
                 Testconfig[idx+1] = {
                                 'ConfigId' : 'AutoTest',
-                                'PreConditionsSettings' : [DatabaseDB[code]['country_info'], DatabaseDB[code][TConfig[func]]],
+                                'PreConditionsSettings' : [ServerDB[code]['country_info'], ServerDB[code][TConfig[func]]],
                                 'UnitTest' : [
                                     {
                                         'id' : func,
@@ -364,14 +450,43 @@ def AutoMode(DeviceData, CntryCode) :
             else :
                 Testconfig[idx+1] = {
                                 'ConfigId' : 'AutoTest',
-                                'PreConditionsSettings' : [DatabaseDB[code]['country_info'], DatabaseDB[code][TConfig[func]]],
+                                'PreConditionsSettings' : [ServerDB[code]['country_info'], ServerDB[code][TConfig[func]]],
                                 'UnitTest' : [
                                     {
                                         'id' : func,
                                         'TestResult' : False,
                                     }
                                 ]    
-                            }    
+                            }
+                
+        elif (code in ServerDB.keys()) and (func == 'HotKey') :
+            for Key in DeviceDB[TConfig[func]].keys() :
+                AppId, Status = ServerDB[code][TConfig[func]][Key][0]
+                dAppId, dStatus = DeviceDB[TConfig[func]][Key][0]
+                dStatus = str(dStatus)
+                if (AppId == dAppId) and (Status == dStatus) : 
+                    Testconfig[idx+1] = {
+                                'ConfigId' : 'AutoTest',
+                                'PreConditionsSettings' : [ServerDB[code]['country_info'], ServerDB[code][TConfig[func]]],
+                                'UnitTest' : [
+                                    {
+                                        'id' : func,
+                                        'TestResult' : True,
+                                    }
+                                ]    
+                            }
+                else :
+                    Testconfig[idx+1] = {
+                                'ConfigId' : 'AutoTest',
+                                'PreConditionsSettings' : [ServerDB[code]['country_info'], ServerDB[code][TConfig[func]]],
+                                'UnitTest' : [
+                                    {
+                                        'id' : func,
+                                        'TestResult' : False,
+                                    }
+                                ]    
+                            }
+                    
 
     print(json.dumps(Testconfig, indent=4))
     return Testconfig   
@@ -383,7 +498,7 @@ def dispMenu() :
 ------------------------------------------------
 TestCondition :
     00. Server condition
-    01. Server Change
+    01. Server Change          < not supported >
     02. Country condition
     03. DB condition
 
@@ -394,7 +509,8 @@ FunctionTest :
     10. Eula
     11. Q-card
     12. Hot-key
-    
+    13. MagicLink
+    14. EPG
     ''')
     return
             
@@ -418,5 +534,7 @@ if __name__ == '__main__' :
                 
         elif cmd == '10' :  EulaTest(DeviceData, CntryCode)
         elif cmd == '11' :  QcardTest(DeviceData, CntryCode)
-        elif cmd == '12' :  HotKeyTest(DeviceData, CntryCode)        
+        elif cmd == '12' :  HotKeyTest(DeviceData, CntryCode)
+        elif cmd == '13' :  MagicLinkTest()
+        elif cmd == '14' :  EPGTest()
         
