@@ -39,6 +39,15 @@ def OpenJsonFile(file) :
         data = json.loads(file.read())
         
     return data
+
+def WriteJsonFile(file, objJson) :
+    with open(file, 'w') as WriteFile :
+        json.dump(objJson, WriteFile, indent=4)
+        
+    if os.path.isfile(file) : 
+        return True
+    else :
+        return False
     
 def MergeData() :
     JsonList = ['eula.json', 'qcard.json', 'hotkey.json']
@@ -423,7 +432,7 @@ def EPGTest() : # tuner_ch_map -> false, tuner_epg -> false because tuner isn't 
 
     print(json.dumps(result, indent=4))
 
-# ======================================================================================================= #
+# ============================================ Auto Test =========================================================== #
 
 def TestConfing() :
     TestFunc = {}
@@ -444,10 +453,11 @@ def AutoMode(DeviceData, CntryCode) :
     DeviceDB = DeviceData                # Device
     code = CntryCode                     # Setting Device Country code
     TConfig = TestConfing()
-    TestFunc = ['Eula', 'qCard', 'HotKey']
+    FuncTestlist = ['Eula', 'qCard', 'HotKey']
+    DataTestlist = ['ai_home', 'nlp', 'epg']
     Testconfig = {}
 
-    for idx, func in enumerate(TestFunc) :
+    for idx, func in enumerate(FuncTestlist) :
         if (code in ServerDB.keys()) and (func != 'HotKey') :
             if sorted(DeviceDB[TConfig[func]]) == sorted(ServerDB[code][TConfig[func]]) :
                 Testconfig[idx+1] = {
@@ -470,8 +480,7 @@ def AutoMode(DeviceData, CntryCode) :
                                         'TestResult' : False,
                                     }
                                 ]    
-                            }
-                
+                            }                
         elif (code in ServerDB.keys()) and (func == 'HotKey') :
             for Key in DeviceDB[TConfig[func]].keys() :
                 AppId, Status = ServerDB[code][TConfig[func]][Key][0]
@@ -499,10 +508,80 @@ def AutoMode(DeviceData, CntryCode) :
                                     }
                                 ]    
                             }
-                    
 
+    for idx, dfunc in enumerate(DataTestlist, len(Testconfig)) :
+        api = 'luna://com.webos.service.sdx/send'
+        payload = {"serviceName":"service_setting_secure","url":"getConfig",
+                    "methodType":"REQ_SSL_POST_METHOD","bodyData":{"requester": dfunc },
+                    "contentType" : "application/json"}
+        ret = lunaCommand(api, payload)
+        retObj = json.loads(ret)
+        bRet, objValue= jsonGetKeyValue(retObj, 'serverResponse')
+        if bRet == False : return 0
+        objRsp = json.loads(objValue['response'])
+        
+        if dfunc == 'ai_home' :
+            shelf_Id = []
+            objshelf = objRsp['ai_home_info']
+            for objshelf in objshelf :
+                shelf_Id.append({'shelfRank' : objshelf['shelfRank'], 'shelfId' : objshelf['shelfId']})
+                
+            Testconfig[idx+1] = {
+                        'ConfigId' : 'AutoTest',
+                        'PreConditionsSettings' : [ServerDB[code]['country_info']],
+                        'UnitTest' : [
+                            {
+                                'id' : func,
+                                'TestResult' : shelf_Id,
+                            }
+                        ]    
+                    }
+            
+        elif dfunc == 'nlp' :
+            magiclink_Id = []
+            objmagiclink = objRsp['magicLink']
+            for k, v in objmagiclink.items() :
+                if k == 'supportedByTipsServer' or k == 'ipChannelSupported' :
+                    magiclink_Id.append({k : v})
+                    
+            Testconfig[idx+1] = {
+                        'ConfigId' : 'AutoTest',
+                        'PreConditionsSettings' : [ServerDB[code]['country_info']],
+                        'UnitTest' : [
+                            {
+                                'id' : func,
+                                'TestResult' : magiclink_Id,
+                            }
+                        ]    
+                    }
+        
+        elif dfunc == 'epg' :
+            tuner_Id = []
+            objepg = objRsp['epg_info']
+            for epgid in objepg : 
+                if 'tuner' in epgid['id'] :
+                    tuner_Id.append({epgid['id'] : epgid['isActive']})
+                    
+            Testconfig[idx+1] = {
+                'ConfigId' : 'AutoTest',
+                'PreConditionsSettings' : [ServerDB[code]['country_info']],
+                'UnitTest' : [
+                    {
+                        'id' : func,
+                        'TestResult' : tuner_Id,
+                    }
+                ]    
+            }
+            
     print(json.dumps(Testconfig, indent=4))
-    return Testconfig   
+    
+    Exist = WriteJsonFile('TestConfig.json', Testconfig)
+    
+    if Exist : 
+        print('> -- Json maker is True -- <')
+    else :
+        print('> -- Json maker is False -- <')
+        
 
 # <-- disp Test Menu --> #
             
